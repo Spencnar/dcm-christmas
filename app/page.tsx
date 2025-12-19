@@ -19,7 +19,7 @@ export default function Home() {
       </header>
 
       {/* 3D Scene */}
-      <div className="w-full h-full mt-96">
+      <div className="w-full h-full mt-64">
         <Scene3D />
       </div>
 
