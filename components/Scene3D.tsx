@@ -16,16 +16,53 @@ export default function Scene3D() {
       className="w-full h-full"
     >
       {/* Lighting */}
-      <ambientLight intensity={0.5} />
+      <ambientLight intensity={0.8} />
+      
+      {/* Main directional light */}
       <directionalLight
         position={[10, 10, 5]}
-        intensity={1}
+        intensity={1.5}
         castShadow
         shadow-mapSize-width={2048}
         shadow-mapSize-height={2048}
       />
-      <pointLight position={[-10, 10, -10]} intensity={0.5} color="#FFD700" />
-      <pointLight position={[10, 10, 10]} intensity={0.5} color="#C41E3A" />
+      
+      {/* Fill light from the side */}
+      <directionalLight
+        position={[-5, 8, 3]}
+        intensity={0.8}
+        color="#ffffff"
+      />
+      
+      {/* Back light for depth */}
+      <directionalLight
+        position={[0, 5, -10]}
+        intensity={0.6}
+        color="#4A90E2"
+      />
+      
+      {/* Accent lights */}
+      <pointLight position={[-10, 10, -10]} intensity={1} color="#FFD700" />
+      <pointLight position={[10, 10, 10]} intensity={1} color="#C41E3A" />
+      <pointLight position={[0, 8, 5]} intensity={0.8} color="#FFFFFF" />
+      
+      {/* Spotlights on each model */}
+      <spotLight
+        position={[-2.5, 8, 5]}
+        angle={0.3}
+        penumbra={0.5}
+        intensity={1.5}
+        castShadow
+        target-position={[-2.5, 1, 0]}
+      />
+      <spotLight
+        position={[3, 8, 5]}
+        angle={0.3}
+        penumbra={0.5}
+        intensity={1.5}
+        castShadow
+        target-position={[3, 1, 0]}
+      />
       
       {/* Environment */}
       <Environment preset="night" />
